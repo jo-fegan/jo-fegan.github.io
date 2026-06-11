@@ -3,83 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Profile | Digital Health Leader</title>
+    <title>Jo Fegan | Digital Health Leader</title>
+    <!-- Google Fonts for Consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2c3e50;
             --accent: #3498db;
-            --bg: #f4f7f6;
+            --accent-hover: #2980b9;
+            --bg: #f8f9fa;
             --card-bg: #ffffff;
             --text: #333333;
-            --text-light: #666666;
+            --text-light: #555555;
+            --border-radius: 8px;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif; /* Consistent Font */
             margin: 0;
             padding: 0;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* Hero Section - Above the Fold */
         header {
-            background: linear-gradient(135deg, var(--primary), #34495e);
+            background: linear-gradient(135deg, var(--primary), #1a252f);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem 4rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        header h1 {
-            font-size: 2.5rem;
+        .photo-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 4px solid rgba(255,255,255,0.3);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            overflow: hidden;
+        }
+        
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
-        header p {
-            font-size: 1.2rem;
+        .subtitle {
+            font-size: 1.25rem;
             opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-tags {
-            margin-top: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .tag {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
             padding: 0.5rem 1rem;
             border-radius: 20px;
-            margin: 0.25rem;
+            margin: 0.3rem;
             display: inline-block;
             font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
         }
 
         /* Container */
         .container {
             max-width: 1000px;
-            margin: -3rem auto 2rem;
+            margin: -3rem auto 3rem;
             padding: 0 1rem;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Section Styling */
+        /* Sections */
         section {
             background: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            padding: 2rem;
-            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
         }
 
         h2 {
             color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.8rem;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 0.5rem;
             margin-top: 0;
+            margin-bottom: 1.5rem;
         }
 
-        /* Timeline Styles */
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            background: #f1f3f5;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent);
+        }
+
+        .achievement-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .achievement-desc {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+        }
+
+        /* Timeline Styles (Fixed Font) */
         .timeline {
             position: relative;
             padding-left: 2rem;
@@ -91,140 +218,263 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 4px;
+            width: 3px;
             background: #e0e0e0;
             border-radius: 2px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .timeline-marker {
             position: absolute;
-            left: -2.6rem;
-            top: 0;
-            width: 20px;
-            height: 20px;
+            left: -2.55rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
             background: var(--accent);
             border-radius: 50%;
-            border: 4px solid white;
+            border: 3px solid white;
             box-shadow: 0 0 0 2px var(--accent);
         }
 
         .timeline-header {
             cursor: pointer;
-            transition: transform 0.2s;
+            padding: 1rem;
+            background: #fafafa;
+            border-radius: 6px;
+            transition: background 0.2s;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .timeline-header:hover {
-            transform: translateX(5px);
+            background: #f0f2f5;
         }
 
         .role {
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.15rem;
             color: var(--primary);
         }
 
         .company {
             color: var(--text-light);
             font-style: italic;
+            margin-left: 10px;
         }
 
         .date {
             font-size: 0.9rem;
             color: var(--accent);
-            font-weight: 600;
-            float: right;
+            font-weight: 700;
+            margin-left: auto;
+            flex-shrink: 0;
         }
 
         .timeline-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
-            color: var(--text-light);
+            padding: 0 1rem;
         }
 
         .timeline-content.open {
-            max-height: 1000px; /* Arbitrary large number */
-            padding-top: 1rem;
+            max-height: 1000px;
+            padding: 1rem 1rem 1rem;
+            background: #fff;
+            border-top: 1px solid #eee;
         }
 
         .timeline-content ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .timeline-content li {
-            margin-bottom: 0.5rem;
-            position: relative;
+            margin-bottom: 0.6rem;
             padding-left: 1.5rem;
-        }
-
-        .timeline-content li::before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .skill-card {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .skill-title {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-level {
-            font-size: 0.85rem;
+            position: relative;
             color: var(--text-light);
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .date { float: none; display: block; margin-bottom: 0.5rem; }
+        .timeline-content li::before {
+            content: "›";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .truman-graphic {
+            width: 120px;
+            height: 120px;
+            background: #eee;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .truman-graphic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .truman-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .close-modal-btn {
+            margin-top: 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .timeline-header { flex-direction: column; align-items: flex-start; }
+            .date { margin-left: 0; margin-top: 0.5rem; }
+            .carousel-container { min-height: 250px; }
         }
     </style>
 </head>
 <body>
 
+<!-- Truman Show Modal -->
+<div class="modal-overlay" id="exitModal">
+    <div class="modal-content">
+        <div class="truman-graphic">
+            <!-- PLACEHOLDER FOR CARTOON GRAPHIC: Replace src below with your image URL -->
+            <!-- Example: src="images/truman-cartoon.png" -->
+            <img src="https://via.placeholder.com/150?text=Truman" alt="Truman Cartoon">
+        </div>
+        <p class="truman-quote">"In case I don't see you... good afternoon, good evening, and good night."</p>
+        <button class="close-modal-btn" onclick="closeModal()">Stay Here</button>
+    </div>
+</div>
+
 <header>
-    <h1>Digital Health & ICT Leader</h1>
-    <p>Innovation Leader | Strategic Delivery | Digital Health Solutions</p>
+    <div class="photo-placeholder">
+        <!-- PLACEHOLDER FOR YOUR PHOTO: Replace src below with your image URL -->
+        <!-- Example: src="images/jo-fegan.jpg" -->
+        <img src="https://via.placeholder.com/150?text=JO+FEGAN" alt="Jo Fegan Photo">
+    </div>
+    <h1>Jo Fegan</h1>
+    <p class="subtitle">Digital Health & ICT Leader championing innovation in consumer experience and clinical outcomes.</p>
+    
     <div class="hero-tags">
-        <span class="tag">Clinical Excellence</span>
+        <span class="tag">Bachelor of Software Eng (Hons)</span>
         <span class="tag">AgileSHIFT Enterprise</span>
         <span class="tag">PRINCE2 Practitioner</span>
-        <span class="tag">Software Engineering</span>
     </div>
+
+    <a href="https://www.linkedin.com/in/jofegan/" target="_blank" class="cta-button">Connect on LinkedIn</a>
 </header>
 
 <div class="container">
 
-    <!-- Vision Section -->
+    <!-- Key Achievements Carousel -->
+    <section>
+        <h2>Key Impact Metrics</h2>
+        <div class="carousel-container">
+            <div class="carousel-track" id="track">
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <div class="achievement-card">
+                        <span class="achievement-number">$35M</span>
+                        <span class="achievement-label">Program Accelerated</span>
+                        <p class="achievement-desc">Delivered EMR rollout across 24 facilities, accelerating schedule by 18 months within budget.</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <div class="achievement-card">
+                        <span class="achievement-number">43M</span>
+                        <span class="achievement-label">Digital Interactions</span>
+                        <p class="achievement-desc">Managed national portfolio supporting 43 million annual user interactions at Healthdirect.</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <div class="achievement-card">
+                        <span class="achievement-number">$3M+</span>
+                        <span class="achievement-label">Funding Identified</span>
+                        <p class="achievement-desc">Uncovered over $3m in unclaimed funding via COVID-19 virtual care process analysis.</p>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <div class="achievement-card">
+                        <span class="achievement-number">100%</span>
+                        <span class="achievement-label">On-Time Delivery</span>
+                        <p class="achievement-desc">Clinical Incident Management System delivered one month ahead of schedule and under budget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-nav" id="dots">
+            <!-- Dots generated by JS -->
+        </div>
+    </section>
+
+    <!-- Vision -->
     <section>
         <h2>Vision & Approach</h2>
         <p>To champion innovation in the consumer experience by delivering safe, compliant, and scalable digital health solutions. Blending a decade of hands-on leadership with data-driven insights, I continuously evolve products to elevate clinical decision-making, improve patient outcomes, and deliver measurable value to the health system.</p>
     </section>
 
-    <!-- Experience Timeline -->
+    <!-- Professional Journey -->
     <section>
         <h2>Professional Journey</h2>
         <div class="timeline">
@@ -233,17 +483,15 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-header" onclick="toggleTimeline(this)">
-                    <span class="date">Jun 25 – Dec 25</span>
                     <span class="role">Strategic Advisor, Clinical Excellence</span>
                     <span class="company">(Remote)</span>
-                    <div style="font-size:0.8rem; color:#999;">Click to expand details...</div>
+                    <span class="date">Jun 25 – Dec 25</span>
                 </div>
                 <div class="timeline-content">
                     <ul>
-                        <li><strong>Queensland's Digital Front Door:</strong> Advanced equitable access to health information and tools closer to home.</li>
-                        <li><strong>Strategy:</strong> Developed a 5-year strategic product roadmap aligning business benefits with consumer value.</li>
-                        <li><strong>Consumer Principles:</strong> Designed governance principles ensuring the consumer voice is ever-present.</li>
-                        <li><strong>Achievement:</strong> Authored user stories and designed prioritization formulas for delivery-ready backlogs.</li>
+                        <li><strong>Digital Front Door:</strong> Advanced equitable access to health info for Queensland.</li>
+                        <li><strong>Strategy:</strong> Developed 5-year roadmap aligning business benefits with consumer value.</li>
+                        <li><strong>Consumer Principles:</strong> Designed governance ensuring the consumer voice is always present.</li>
                     </ul>
                 </div>
             </div>
@@ -252,17 +500,15 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-header" onclick="toggleTimeline(this)">
-                    <span class="date">Mar 22 – Sep 24</span>
                     <span class="role">Product Manager > Digital Director</span>
                     <span class="company">Healthdirect (Remote)</span>
-                    <div style="font-size:0.8rem; color:#999;">Click to expand details...</div>
+                    <span class="date">Mar 22 – Sep 24</span>
                 </div>
                 <div class="timeline-content">
                     <ul>
-                        <li><strong>Scale:</strong> Managed a national portfolio supporting <strong>43 million digital interactions</strong> annually.</li>
-                        <li><strong>Innovation:</strong> Spearheaded the implementation of AI-powered Clinical Decision Support (Infermedica).</li>
-                        <li><strong>Delivery:</strong> Delivered Clinical Incident Management System one month ahead of schedule and under budget.</li>
-                        <li><strong>Technology:</strong> Led cross-functional teams using React, AWS Lambda, DynamoDB, and Jira.</li>
+                        <li><strong>Scale:</strong> Managed national portfolio supporting 43M interactions annually.</li>
+                        <li><strong>Innovation:</strong> Spearheaded AI-powered Clinical Decision Support implementation.</li>
+                        <li><strong>Delivery:</strong> Delivered systems ahead of schedule and under budget.</li>
                     </ul>
                 </div>
             </div>
@@ -271,35 +517,31 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-header" onclick="toggleTimeline(this)">
-                    <span class="date">Mar 18 – Feb 22</span>
                     <span class="role">Program Manager</span>
                     <span class="company">TCHHS, Cairns</span>
-                    <div style="font-size:0.8rem; color:#999;">Click to expand details...</div>
+                    <span class="date">Mar 18 – Feb 22</span>
                 </div>
                 <div class="timeline-content">
                     <ul>
-                        <li><strong>$35M Initiative:</strong> Proposed off-the-shelf EMR solution, accelerating rollout by <strong>18 months</strong> within budget.</li>
-                        <li><strong>Data Warehouse:</strong> Managed Queensland Health's first/largest primary care data warehouse.</li>
-                        <li><strong>Funding:</strong> Identified over <strong>$3m</strong> in unclaimed funding via COVID-19 virtual care analysis.</li>
-                        <li><strong>Revenue:</strong> Implemented secure messaging policies generating $100k annual revenue.</li>
+                        <li><strong>$35M Initiative:</strong> Proposed off-the-shelf EMR, accelerating rollout by 18 months.</li>
+                        <li><strong>Data Warehouse:</strong> Managed QLD Health's first primary care data warehouse.</li>
+                        <li><strong>Funding:</strong> Identified $3m in unclaimed funding via virtual care analysis.</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Role 4 -->
-            <div class="timeline-item">
+             <!-- Role 4 -->
+             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-header" onclick="toggleTimeline(this)">
-                    <span class="date">Apr 16 – Feb 18</span>
                     <span class="role">Principal Business Analyst</span>
                     <span class="company">CHHHS, Cairns</span>
-                    <div style="font-size:0.8rem; color:#999;">Click to expand details...</div>
+                    <span class="date">Apr 16 – Feb 18</span>
                 </div>
                 <div class="timeline-content">
                     <ul>
                         <li>Defined co-design procurement frameworks for multi-million dollar eHealth solutions.</li>
-                        <li>Established quality criteria and test strategies guaranteeing product safety and sustainability.</li>
-                        <li>Led multi-disciplinary workshops to align stakeholders and create collective ownership.</li>
+                        <li>Established quality criteria guaranteeing product safety and sustainability.</li>
                     </ul>
                 </div>
             </div>
@@ -308,16 +550,14 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-header" onclick="toggleTimeline(this)">
-                    <span class="date">Oct 09 – Feb 15</span>
                     <span class="role">Senior BA / Project Manager</span>
                     <span class="company">Federal Agencies (Canberra)</span>
-                    <div style="font-size:0.8rem; color:#999;">Click to expand details...</div>
+                    <span class="date">Oct 09 – Feb 15</span>
                 </div>
                 <div class="timeline-content">
                     <ul>
                         <li>Delivered public education websites and WCAG 2.0 compliant intranets.</li>
                         <li>Coached managers in Agile/Waterfall hybrid methodologies.</li>
-                        <li>Maintained ISO 9001:2008 accreditation and drove business growth.</li>
                     </ul>
                 </div>
             </div>
@@ -325,47 +565,108 @@
         </div>
     </section>
 
-    <!-- Applied Expertise -->
-    <section>
-        <h2>Applied Expertise & Certifications</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <span class="skill-title">Project Management</span>
-                <span class="skill-level">PRINCE2 Practitioner (2014)<br>AgileSHIFT Enterprise Agility (2022)</span>
-            </div>
-            <div class="skill-card">
-                <span class="skill-title">Technical Architecture</span>
-                <span class="skill-level">AWS Lambda, DynamoDB, React<br>MSSQL, Power BI, Figma</span>
-            </div>
-            <div class="skill-card">
-                <span class="skill-title">Clinical Systems</span>
-                <span class="skill-level">EMR Implementation<br>Clinical Decision Support (AI)<br>Interoperability Standards</span>
-            </div>
-            <div class="skill-card">
-                <span class="skill-title">Education</span>
-                <span class="skill-level">B. Software Eng (Hons)<br>ANU (2008)</span>
-            </div>
-        </div>
-    </section>
-
 </div>
 
 <script>
+    // --- Timeline Toggle Logic ---
     function toggleTimeline(element) {
         const content = element.nextElementSibling;
         const isOpen = content.classList.contains('open');
         
-        // Close all others (optional accordion behavior)
+        // Close all others
         document.querySelectorAll('.timeline-content').forEach(el => el.classList.remove('open'));
         
         if (!isOpen) {
             content.classList.add('open');
-            element.querySelector('div').textContent = "Click to hide details";
-        } else {
-            content.classList.remove('open');
-            element.querySelector('div').textContent = "Click to expand details...";
         }
     }
+
+    // --- Carousel Logic ---
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const dotsContainer = document.getElementById('dots');
+    let currentIndex = 0;
+
+    // Create dots
+    slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('nav-dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => moveToSlide(idx));
+        dotsContainer.appendChild(dot);
+    });
+
+    function moveToSlide(index) {
+        currentIndex = index;
+        const amountToMove = -100 * index;
+        track.style.transform = `translateX(${amountToMove}%)`;
+        
+        // Update dots
+        document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    // Auto-play carousel every 5 seconds
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        moveToSlide(currentIndex);
+    }, 5000);
+
+    // --- Truman Show Modal Logic ---
+    const modal = document.getElementById('exitModal');
+    let preventClose = false;
+
+    window.addEventListener('beforeunload', function(e) {
+        // Only trigger if not already showing modal and user is trying to leave
+        if(!preventClose && !modal.classList.contains('show')) {
+            preventClose = true;
+            e.preventDefault(); // Standard browser behavior
+            e.returnValue = ''; 
+            // Show custom modal shortly before unload (approximate)
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 100);
+        }
+    });
+
+    // Handle clicks that might cause navigation (optional aggressive intercept)
+    document.body.addEventListener('click', function(e) {
+        // If clicking an external link, show modal first
+        if(e.target.closest('a') && e.target.closest('a').href.startsWith('http') && !e.target.closest('a').href.includes(window.location.hostname)) {
+             if(!preventClose && !modal.classList.contains('show')) {
+                 preventClose = true;
+                 modal.classList.add('show');
+                 e.preventDefault(); // Stop immediate navigation
+                 
+                 // Allow navigation after closing modal
+                 const closeBtn = document.querySelector('.close-modal-btn');
+                 // Re-attach click logic for the specific link later
+                 const originalHref = e.target.closest('a').href;
+                 const currentLink = e.target.closest('a');
+                 
+                 closeBtn.onclick = function() {
+                     closeModal();
+                     window.location.href = originalHref;
+                     // Restore original link behavior for next time
+                     closeBtn.onclick = closeModal; 
+                 };
+             }
+        }
+    });
+
+    function closeModal() {
+        modal.classList.remove('show');
+        preventClose = false;
+    }
+
+    // Close modal if clicking outside content (optional, keeps the joke strict?)
+    // Uncomment below if you want clicking outside to close it
+    /*
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    */
 </script>
 
 </body>
