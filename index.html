@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jo Fegan | Digital Health Leader</title>
+    
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Favicon Fix -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <style>
         :root {
             --primary: #2c3e50;
@@ -32,7 +36,7 @@
         header {
             background: linear-gradient(135deg, var(--primary), #1a252f);
             color: white;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             text-align: left;
             position: relative;
             overflow: hidden;
@@ -75,7 +79,7 @@
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            margin: 0 0 0.5rem 0;
+            margin: 0 0 0.2rem 0;
             line-height: 1.1;
         }
 
@@ -84,6 +88,7 @@
             opacity: 0.9;
             margin-bottom: 1rem;
             font-weight: 300;
+            font-family: 'Inter', sans-serif;
         }
 
         /* Slim LinkedIn Button */
@@ -109,7 +114,7 @@
         }
 
         .hero-tags {
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
@@ -157,7 +162,7 @@
             line-height: 1.7;
         }
 
-        /* --- CAROUSEL (Modernized) --- */
+        /* --- CAROUSEL (Animated) --- */
         .carousel-wrapper {
             position: relative;
             overflow: hidden;
@@ -229,10 +234,10 @@
             transform: scale(1.2);
         }
 
-        /* --- SKILLS CARDS (NEW) --- */
+        /* --- SKILLS EXPERTISE TECHNOLOGIES (3 Parallel Cards) --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
 
@@ -250,29 +255,27 @@
             border-color: var(--accent);
         }
 
-        .skill-icon {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
         .skill-title {
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
         }
 
         .skill-list {
             list-style: none;
             padding: 0;
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-light);
         }
         
         .skill-list li {
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.6rem;
             padding-left: 1rem;
             position: relative;
         }
@@ -285,7 +288,7 @@
             font-weight: bold;
         }
 
-        /* --- TIMELINE --- */
+        /* --- TIMELINE (Restored) --- */
         .timeline {
             position: relative;
             padding-left: 2rem;
@@ -299,16 +302,17 @@
             bottom: 0;
             width: 3px;
             background: #e0e0e0;
+            border-radius: 2px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .timeline-marker {
             position: absolute;
-            left: -2.4rem;
+            left: -2.55rem;
             top: 0.5rem;
             width: 16px;
             height: 16px;
@@ -334,19 +338,36 @@
             background: #f0f2f5;
         }
 
-        .role { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
-        .company { color: var(--text-light); font-style: italic; margin-left: 8px; }
-        .date { font-size: 0.85rem; color: var(--accent); font-weight: 700; margin-left: auto; }
+        .role {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--primary);
+        }
+
+        .company {
+            color: var(--text-light);
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
 
         .timeline-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
+            padding: 0 1rem;
         }
 
         .timeline-content.open {
             max-height: 1000px;
-            padding: 1rem;
+            padding: 1rem 1rem 1rem;
             background: #fff;
             border-top: 1px solid #eee;
         }
@@ -358,8 +379,8 @@
         }
 
         .timeline-content li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.2rem;
+            margin-bottom: 0.6rem;
+            padding-left: 1.5rem;
             position: relative;
             color: var(--text-light);
         }
@@ -371,6 +392,7 @@
             position: absolute;
             left: 0;
             font-size: 1.2rem;
+            line-height: 1;
         }
 
         /* --- MODAL --- */
@@ -463,9 +485,13 @@
             .photo-wrapper { order: 1; }
             .hero-tags { justify-content: center; }
             .cta-button { justify-content: center; }
+            
+            .skills-grid { grid-template-columns: 1fr; }
+            
             .timeline-header { flex-direction: column; align-items: flex-start; }
             .date { margin-left: 0; margin-top: 0.5rem; }
-            #chatWindow { width: 300px; right: -20px; }
+            
+            #chatWindow { width: 300px; right: -10px; }
         }
     </style>
 </head>
@@ -475,7 +501,7 @@
 <div class="modal-overlay" id="exitModal">
     <div class="modal-content">
         <div class="truman-graphic">
-            <img src="https://via.placeholder.com/100?text=Truman" alt="Truman" id="trumanImg">
+            <img src="https://raw.githubusercontent.com/jo-fegan/jo-fegan.github.io/refs/heads/main/truman.png" alt="Truman" id="trumanImg">
         </div>
         <p class="truman-quote">"In case I don't see you... good afternoon, good evening, and good night."</p>
         <button class="close-modal-btn" onclick="closeModal()">Stay Here</button>
@@ -487,20 +513,20 @@
     <div class="hero-container">
         <div class="photo-wrapper">
             <div class="photo-placeholder">
-                <img src="https://via.placeholder.com/120?text=JO" alt="Jo Fegan" id="profileImg">
+                <img src="https://raw.githubusercontent.com/jo-fegan/jo-fegan.github.io/refs/heads/main/jo-fegan.jpg" alt="Jo Fegan" id="profileImg">
             </div>
         </div>
         <div class="hero-text">
             <h1>Jo Fegan</h1>
-            <p class="subtitle">Digital Health & ICT Leader | Strategic Advisor</p>
+            <p class="subtitle">Innovation Leader | Strategic Execution | Digital Health</p>
             
             <a href="https://www.linkedin.com/in/jofegan/" target="_blank" class="cta-button">
                 <i class="fab fa-linkedin"></i> Connect on LinkedIn
             </a>
 
             <div class="hero-tags">
-                <span class="tag">Software Eng (Hons)</span>
-                <span class="tag">AgileSHIFT Enterprise</span>
+                <span class="tag">Bachelor of Software Eng (Hons)</span>
+                <span class="tag">AgileSHIFT Enterprise Agility</span>
                 <span class="tag">PRINCE2 Practitioner</span>
             </div>
         </div>
@@ -509,17 +535,17 @@
 
 <div class="container">
 
-    <!-- Vision (Moved UP) -->
+    <!-- Vision -->
     <section>
-        <h2>Vision & Approach</h2>
+        <h2>Vision</h2>
         <p class="vision-text">
             To champion innovation in the consumer experience by delivering safe, compliant, and scalable digital health solutions. Blending a decade of hands-on leadership with data-driven insights, I continuously evolve products to elevate clinical decision-making, improve patient outcomes, and deliver measurable value to the health system.
         </p>
     </section>
 
-    <!-- Key Achievements Carousel -->
+    <!-- Key Achievements (Animated Carousel) -->
     <section>
-        <h2>Key Impact Metrics</h2>
+        <h2>Key Achievements</h2>
         <div class="carousel-wrapper">
             <div class="carousel-track" id="track">
                 <!-- Slide 1 -->
@@ -527,7 +553,7 @@
                     <div class="achievement-card">
                         <span class="achievement-number">$35M</span>
                         <span class="achievement-label">Program Accelerated</span>
-                        <p class="achievement-desc">Delivered EMR rollout across 24 facilities, accelerating schedule by 18 months within budget.</p>
+                        <p class="achievement-desc">Proposed and delivered an off-the-solution EMR across 24 facilities, accelerating rollout by 18 months within operational budget.</p>
                     </div>
                 </div>
                 <!-- Slide 2 -->
@@ -535,23 +561,31 @@
                     <div class="achievement-card">
                         <span class="achievement-number">43M</span>
                         <span class="achievement-label">Digital Interactions</span>
-                        <p class="achievement-desc">Managed national portfolio supporting 43 million annual user interactions at Healthdirect.</p>
+                        <p class="achievement-desc">Managed a national digital health portfolio at Healthdirect supporting 43 million interactions annually, optimizing user experience.</p>
                     </div>
                 </div>
                 <!-- Slide 3 -->
                 <div class="slide">
                     <div class="achievement-card">
                         <span class="achievement-number">$3M+</span>
-                        <span class="achievement-label">Funding Identified</span>
-                        <p class="achievement-desc">Uncovered over $3m in unclaimed funding via COVID-19 virtual care process analysis.</p>
+                        <span class="achievement-label">Funding Secured</span>
+                        <p class="achievement-desc">Analysed COVID-19 virtual care processes for executives and identified over $3m in unclaimed funding.</p>
                     </div>
                 </div>
                 <!-- Slide 4 -->
                 <div class="slide">
                     <div class="achievement-card">
-                        <span class="achievement-number">100%</span>
-                        <span class="achievement-label">On-Time Delivery</span>
-                        <p class="achievement-desc">Clinical Incident Management System delivered one month ahead of schedule and under budget.</p>
+                        <span class="achievement-number">On-Time</span>
+                        <span class="achievement-label">Clinical Incident System</span>
+                        <p class="achievement-desc">Delivered a Clinical Incident Management System one month ahead of schedule and under budget, improving healthcare resolution tracking.</p>
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="slide">
+                    <div class="achievement-card">
+                        <span class="achievement-number">$100k</span>
+                        <span class="achievement-label">Annual Revenue</span>
+                        <p class="achievement-desc">Implemented policies and procedures for secure messaging, generating $100k revenue per annum for the service.</p>
                     </div>
                 </div>
             </div>
@@ -559,10 +593,258 @@
         <div class="carousel-nav" id="dots"></div>
     </section>
 
-    <!-- New Skills Section -->
+    <!-- Skills, Expertise, Technologies (3 Parallel Cards) -->
     <section>
-        <h2>Skills & Expertise</h2>
+        <h2>Core Capabilities</h2>
         <div class="skills-grid">
+            <!-- Card 1: Skills -->
             <div class="skill-card">
-                <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                <div class="skill-title">Strategic Leade
+                <div class="skill-title">Skills</div>
+                <ul class="skill-list">
+                    <li>Strategic Roadmap Planning</li>
+                    <li>Stakeholder Relationship Mgmt</li>
+                    <li>Change & Innovation Leadership</li>
+                    <li>Investment Case Formulation</li>
+                    <li>Consumer-Centric Design</li>
+                    <li>Risk Mitigation Strategy</li>
+                </ul>
+            </div>
+            <!-- Card 2: Expertise -->
+            <div class="skill-card">
+                <div class="skill-title">Expertise</div>
+                <ul class="skill-list">
+                    <li>Digital Health Transformation</li>
+                    <li>EMR Implementation & Integration</li>
+                    <li>Clinical Decision Support Systems</li>
+                    <li>Health Data Warehousing & BI</li>
+                    <li>Interoperability Standards</li>
+                    <li>Cross-Functional Team Leadership</li>
+                </ul>
+            </div>
+            <!-- Card 3: Technologies -->
+            <div class="skill-card">
+                <div class="skill-title">Technologies</div>
+                <ul class="skill-list">
+                    <li>AWS (Lambda, DynamoDB)</li>
+                    <li>React & JavaScript Ecosystem</li>
+                    <li>MSSQL & Power BI Dashboards</li>
+                    <li>Jira, Confluence, Miro, Figma</li>
+                    <li>Best Practice & Medical Director</li>
+                    <li>API Integration & UML Modeling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Journey (Restored Timeline) -->
+    <section>
+        <h2>Professional Journey</h2>
+        <div class="timeline">
+            
+            <!-- Role 1 -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-header" onclick="toggleTimeline(this)">
+                    <span><span class="role">Strategic Advisor</span> <span class="company">Clinical Excellence, Remote</span></span>
+                    <span class="date">Jun 25 – Dec 25</span>
+                </div>
+                <div class="timeline-content">
+                    <ul>
+                        <li><strong>Strategy:</strong> Developed a 5-year strategic product roadmap for the Department, aligning business benefits with consumer value.</li>
+                        <li><strong>Digital Front Door:</strong> Advanced equitable access to health information, tools, and services closer to home.</li>
+                        <li><strong>Consumer Principles:</strong> Designed governance principles ensuring a consumer voice is ever-present in product decisions.</li>
+                        <li><strong>Delivery:</strong> Led product discovery, authored user stories, and designed prioritisation formulas for delivery-ready backlogs.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-header" onclick="toggleTimeline(this)">
+                    <span><span class="role">Product Manager > Digital Director</span> <span class="company">Healthdirect, Remote</span></span>
+                    <span class="date">Mar 22 – Sep 24</span>
+                </div>
+                <div class="timeline-content">
+                    <ul>
+                        <li><strong>Scale:</strong> Managed a national portfolio supporting 43 million digital interactions annually, optimizing user experience.</li>
+                        <li><strong>Innovation:</strong> Spearheaded the implementation of AI-powered Clinical Decision Support (Infermedica).</li>
+                        <li><strong>Delivery:</strong> Delivered Clinical Incident Management System one month ahead of schedule and under budget.</li>
+                        <li><strong>Technology:</strong> Prototyped journeys in Figma; translated requirements into Jira epics for React/AWS apps.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-header" onclick="toggleTimeline(this)">
+                    <span><span class="role">Program Manager</span> <span class="company">TCHHS, Cairns</span></span>
+                    <span class="date">Mar 18 – Feb 22</span>
+                </div>
+                <div class="timeline-content">
+                    <ul>
+                        <li><strong>$35M Initiative:</strong> Proposed and delivered an off-the-shelf EMR across 24 facilities, accelerating rollout by 18 months within budget.</li>
+                        <li><strong>Data Warehouse:</strong> Managed QLD Health's first primary healthcare data warehouse for interactive dashboards.</li>
+                        <li><strong>Funding:</strong> Analysed COVID-19 virtual care processes and identified over $3m in unclaimed funding.</li>
+                        <li><strong>Revenue:</strong> Generated $100k annual revenue via secure messaging policy implementation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Role 4 -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-header" onclick="toggleTimeline(this)">
+                    <span><span class="role">Principal Business Analyst</span> <span class="company">CHHHS, Cairns</span></span>
+                    <span class="date">Apr 16 – Feb 18</span>
+                </div>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Defined co-design procurement frameworks for multi-million dollar eHealth solutions.</li>
+                        <li>Led multi-disciplinary workshops to align stakeholders and create collective ownership.</li>
+                        <li>Established quality criteria and test strategies guaranteeing product safety.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Role 5 -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-header" onclick="toggleTimeline(this)">
+                    <span><span class="role">Senior BA / Project Manager</span> <span class="company">Federal Agencies, Canberra</span></span>
+                    <span class="date">Oct 09 – Feb 15</span>
+                </div>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Delivered public education websites and WCAG 2.0 compliant SharePoint sites.</li>
+                        <li>Coached managers in Agile/Waterfall hybrid methodologies.</li>
+                        <li>Documented technical specs in strict adherence to MIL-STD 498.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- Chat Widget -->
+<div>
+    <button id="chatToggle" title="Ask about my experience">💬</button>
+    <div id="chatWindow">
+        <div class="chat-header">Experience Assistant</div>
+        <div class="chat-body" id="chatContent">
+            <div class="chat-msg bot-msg">Hi! Ask me anything about my background, like "Do you have EMR experience?"</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type a question..." autocomplete="off">
+            <button id="chatSendBtn">Ask</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Timeline Toggle ---
+    function toggleTimeline(element) {
+        const content = element.nextElementSibling;
+        const isOpen = content.classList.contains('open');
+        document.querySelectorAll('.timeline-content').forEach(el => el.classList.remove('open'));
+        if (!isOpen) content.classList.add('open');
+    }
+
+    // --- Carousel Logic ---
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const dotsContainer = document.getElementById('dots');
+    let currentIndex = 0;
+
+    slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('nav-dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => moveToSlide(idx));
+        dotsContainer.appendChild(dot);
+    });
+
+    function moveToSlide(index) {
+        currentIndex = index;
+        track.style.transform = `translateX(${ -100 * index }%)`;
+        document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        moveToSlide(currentIndex);
+    }, 5000);
+
+    // --- Truman Modal Logic ---
+    const modal = document.getElementById('exitModal');
+    const closeBtn = document.querySelector('.close-modal-btn');
+    
+    document.body.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (link && link.hostname !== window.location.hostname && link.getAttribute('href')) {
+            e.preventDefault();
+            const targetUrl = link.href;
+            modal.classList.add('show');
+            closeBtn.onclick = function() {
+                closeModal();
+                window.location.href = targetUrl;
+                closeBtn.onclick = closeModal; 
+            };
+        }
+    });
+
+    function closeModal() {
+        modal.classList.remove('show');
+    }
+
+    // --- Chat Logic ---
+    const knowledgeBase = {
+        emr: "Yes! I led a $35M EMR implementation across 24 facilities, accelerating rollout by 18 months within budget.",
+        emrs: "Yes! I led a $35M EMR implementation across 24 facilities, accelerating rollout by 18 months within budget.",
+        leadership: "I have over 10 years leading digital health teams, managing national portfolios up to 43M annual interactions.",
+        agile: "I'm an AgileSHIFT Enterprise Agility certified practitioner with extensive hybrid Agile/Waterfall experience.",
+        prince2: "I am a PRINCE2 Practitioner certified since 2014, with multiple successful program deliveries.",
+        stakeholder: "I regularly work with clinical, technical, vendor, and executive stakeholders to align deliverables.",
+        default: "Thanks for asking! I have relevant experience in this area. Connect on LinkedIn to discuss details."
+    };
+
+    document.getElementById('chatToggle').onclick = function() {
+        const chat = document.getElementById('chatWindow');
+        chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
+    };
+
+    document.getElementById('chatSendBtn').onclick = sendQuery;
+    document.getElementById('chatInput').onkeypress = function(e) {
+        if (e.key === 'Enter') sendQuery();
+    };
+
+    function sendQuery() {
+        const input = document.getElementById('chatInput');
+        const question = input.value.toLowerCase().trim();
+        const content = document.getElementById('chatContent');
+        
+        if (!question) return;
+        
+        content.innerHTML += `<div class="chat-msg user-msg">${input.value}</div>`;
+        
+        let response = knowledgeBase.default;
+        Object.keys(knowledgeBase).forEach(key => {
+            if (question.includes(key)) response = knowledgeBase[key];
+        });
+        
+        setTimeout(() => {
+            content.innerHTML += `<div class="chat-msg bot-msg">${response}</div>`;
+            content.scrollTop = content.scrollHeight;
+        }, 300);
+        
+        input.value = '';
+        input.focus();
+    }
+</script>
+
+</body>
+</html>
